@@ -160,3 +160,62 @@ b:hover {
         width: 40%;
     }
 }
+
+
+/* Bocchi Panic Mode Keyframes */
+@keyframes bocchi-vibrate {
+  0%   { transform: translate(0, 0) rotate(0deg); }
+  10%  { transform: translate(-8px, 6px) rotate(-2deg); }
+  20%  { transform: translate(7px, -5px) rotate(3deg); }
+  30%  { transform: translate(-9px, -3px) rotate(-1deg); }
+  40%  { transform: translate(8px, 7px) rotate(2deg); }
+  50%  { transform: translate(-6px, 4px) rotate(-3deg); }
+  60%  { transform: translate(9px, -8px) rotate(1deg); }
+  70%  { transform: translate(-7px, 5px) rotate(-2deg); }
+  80%  { transform: translate(6px, -4px) rotate(2deg); }
+  90%  { transform: translate(-5px, 8px) rotate(-1deg); }
+  100% { transform: translate(0, 0) rotate(0deg); }
+}
+
+/* 1. Desaturate the entire page background to pitch black & white */
+body.panic-mode {
+  background-color: #000000 !important;
+  background-image: none !important; /* Removes bg image temporarily */
+  color: #ffffff !important;
+  overflow: hidden;
+}
+
+/* 2. Style the main box into Black, White & Pink */
+.box.bocchi-panic {
+  animation: bocchi-vibrate 0.07s infinite linear !important;
+  background-color: #000000 !important;
+  border: 2px solid #ff79c6 !important;
+  box-shadow: 0 0 15px #ff79c6, 
+              0 0 35px #ff1493, 
+              0 0 60px #ff1493 !important;
+}
+
+/* 3. Force all internal text, headers, and links to white & pink */
+.box.bocchi-panic h1, 
+.box.bocchi-panic h2 {
+  color: #ff79c6 !important;
+  border-bottom-color: #ff79c6 !important;
+  text-shadow: 0 0 10px #ff1493 !important;
+}
+
+.box.bocchi-panic a, 
+.box.bocchi-panic li::before, 
+.box.bocchi-panic th {
+  color: #ffffff !important;
+}
+
+.box.bocchi-panic p, 
+.box.bocchi-panic td, 
+.box.bocchi-panic li {
+  color: #e2e8f0 !important;
+}
+
+/* Grayscale image during panic */
+.box.bocchi-panic img {
+  filter: grayscale(100%) contrast(120%) !important;
+}
